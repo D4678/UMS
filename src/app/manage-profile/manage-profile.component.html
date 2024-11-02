@@ -1,0 +1,35 @@
+<div class="profile-form">
+  <h2>User Profile</h2>
+  <form [formGroup]="profileForm">
+    <label>ID:</label>
+    <input formControlName="id" readonly />
+
+    <label>User Name:</label>
+    <input formControlName="userName" [readonly]="!isEditable" />
+
+    <label>Email:</label>
+    <input formControlName="email" [readonly]="!isEditable" />
+
+    <label>Date of Birth:</label>
+    <input formControlName="dob" [readonly]="!isEditable" />
+
+    <label>Mobile No:</label>
+    <input formControlName="mobileNo" [readonly]="!isEditable" />
+
+    <label>Country:</label>
+    <input formControlName="country" [readonly]="!isEditable" />
+
+    <label>State:</label>
+    <input formControlName="state" [readonly]="!isEditable" />
+
+    <label>City:</label>
+    <input formControlName="city" [readonly]="!isEditable" />
+
+    <label>Pincode:</label>
+    <input formControlName="pincode" [readonly]="!isEditable" />
+
+    <button *ngIf="!isEditable" (click)="toggleEditMode()">Edit</button>
+    <button *ngIf="isEditable" (click)="saveChanges()">Save</button>
+    <button *ngIf="isEditable" (click)="toggleEditMode()">Cancel</button>
+  </form>
+</div>

@@ -1,0 +1,42 @@
+/* manage-profile.component.css */
+
+.profile-form {
+    background-color: #ffffff; /* White background for form */
+    padding: 20px; /* Padding inside the form */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    width: 400px; /* Set a width for the form */
+    margin: 20px auto; /* Center the form horizontally */
+}
+
+h2 {
+    text-align: center; /* Center heading */
+    margin-bottom: 20px; /* Space below heading */
+    color: #333; /* Darker text color */
+}
+
+label {
+    display: block; /* Display labels as block elements */
+    margin-bottom: 5px; /* Space below each label */
+    font-weight: bold; /* Bold labels */
+    color: #555; /* Slightly lighter text color */
+}
+
+input {
+    width: 100%; /* Full width input fields */
+    padding: 10px; /* Padding inside input fields */
+    margin-bottom: 15px; /* Space below each input field */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 4px; /* Slightly rounded corners */
+    font-size: 14px; /* Font size */
+}
+
+input[readonly] {
+    background-color: #f9f9f9; /* Light background for readonly inputs */
+    cursor: not-allowed; /* Change cursor to indicate it's not editable */
+}
+
+input:focus {
+    border-color: #007bff; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+}

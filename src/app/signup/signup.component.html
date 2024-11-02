@@ -1,0 +1,151 @@
+
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    <h2>Account Information</h2>
+   
+    <div>
+      <label for="userId">User ID:</label>
+      <input
+        id="userId"
+        formControlName="userId"
+        [class.input-error]="signupForm.get('userId')?.invalid && signupForm.get('userId')?.touched"
+      />
+      <div *ngIf="signupForm.get('userId')?.invalid && signupForm.get('userId')?.touched" class="error-message">
+        User ID is required.
+      </div>
+    </div>
+
+    <div>
+      <label for="password">Password:</label>
+      <input id="password" formControlName="password" />
+      <div *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched">
+        Password  is required.
+      </div>
+    </div>
+
+    <div>
+      <label for="cpassword">Confirm Password:</label>
+      <input id="cpassword" formControlName="cpassword" />
+      <div *ngIf="signupForm.get('cpassword')?.invalid && signupForm.get('cpassword')?.touched">
+        Confirm Password is required.
+      </div>
+    </div>
+    
+    <div>
+      <label for="securityQuestion">Security Question:</label>
+      <select id="securityQuestion" formControlName="securityQuestion">
+        <option value="" disabled>Select a question</option>
+        <option *ngFor="let question of securityQuestion" [value]="question.id">{{ question.name }}</option>
+      </select>
+      <div *ngIf="signupForm.get('securityQuestion')?.invalid && signupForm.get('securityQuestion')?.touched">
+        Security question is required.
+      </div>
+    </div>
+  
+    <div>
+      <label for="securityAnswer">Answer:</label>
+      <input id="securityAnswer" formControlName="securityAnswer" />
+      <div *ngIf="signupForm.get('securityAnswer')?.invalid && signupForm.get('securityAnswer')?.touched">
+        Security answer is required.
+      </div>
+    </div>
+  
+    <h2>Personal Information</h2>
+    <div>
+      <label for="name">Name:</label>
+      <input id="name" formControlName="name" />
+      <div *ngIf="signupForm.get('name')?.invalid && signupForm.get('name')?.touched">
+        Name is required.
+      </div>
+    </div>
+  
+    <div>
+      <label for="Dob">Date of Birth:</label>
+      <input id="Dob" type="date" formControlName="Dob" />
+      <div *ngIf="signupForm.get('dob')?.invalid && signupForm.get('dob')?.touched">
+        Date of birth is required.
+      </div>
+    </div>
+  
+    <div>
+      <label>Gender:</label>
+      <label>
+        <input type="radio" formControlName="gender" value="male" /> Male
+      </label>
+      <label>
+        <input type="radio" formControlName="gender" value="female" /> Female
+      </label>
+      <div *ngIf="signupForm.get('gender')?.invalid && signupForm.get('gender')?.touched">
+        Gender is required.
+      </div>
+    </div>
+  
+    <div>
+      <label for="email">Email:</label>
+      <input id="email" type="email" formControlName="email" />
+      <div *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched">
+        <div *ngIf="signupForm.get('email')?.errors?.['required']">Email is required.</div>
+        <div *ngIf="signupForm.get('email')?.errors?.['email']">Invalid email format.</div>
+      </div>
+    </div>
+  
+    <div>
+      <label for="street" >Street:</label>
+      <input id="street" formControlName="street" />
+      <div *ngIf="signupForm.get('street')?.invalid && signupForm.get('street')?.touched">
+        Street is required.
+      </div>
+    </div>
+  
+    <div>
+        <label for="country">Country:</label>
+        <select id="country" formControlName="country">
+          <option value="" disabled>Select a country</option>
+          <option *ngFor="let country of countries" [value]="country.id">{{ country.name }}</option>
+        </select>
+        <div *ngIf="signupForm.get('country')?.invalid && (signupForm.get('country')?.touched || signupForm.get('country')?.dirty)">
+          <small class="error">Country is required.</small>
+        </div>
+      </div>
+  
+    <div>
+      <label for="state">State:</label>
+      <select id="state" formControlName="state">
+        <option value="" disabled>Select a State</option>
+        <option *ngFor="let state of states" [value]="state.id">{{ state.name }}</option>
+      </select>
+      <div *ngIf="signupForm.get('state')?.invalid && signupForm.get('state')?.touched">
+        State is required.
+      </div>
+    </div>
+  
+    <div>
+        <label for="city">City</label>
+        <select id="city" formControlName="city">
+          <option *ngFor="let city of cities" [value]="city.id">{{ city.name }}</option>
+        </select>
+        <div *ngIf="signupForm.get('city')?.invalid && signupForm.get('city')?.touched">
+          City is required.
+        </div>
+      </div>
+  
+    <div>
+      <label for="pincode">Pincode:</label>
+      <input id="pincode" formControlName="pincode" />
+      <div *ngIf="signupForm.get('pincode')?.invalid && signupForm.get('pincode')?.touched">
+        <div *ngIf="signupForm.get('pincode')?.errors?.['required']">Pincode is required.</div>
+        <div *ngIf="signupForm.get('pincode')?.errors?.['pattern']">Invalid pincode format.</div>
+      </div>
+    </div>
+  
+    <div>
+      <label for="mobile">Mobile:</label>
+      <input id="mobile" formControlName="mobile" />
+      <div *ngIf="signupForm.get('mobile')?.invalid && signupForm.get('mobile')?.touched">
+        <div *ngIf="signupForm.get('mobile')?.errors?.['required']">Mobile number is required.</div>
+        <div *ngIf="signupForm.get('mobile')?.errors?.['pattern']">Invalid mobile number format.</div>
+      </div>
+    </div>
+  
+    <button type="submit" [disabled]="signupForm.invalid">Submit</button>
+  </form>
+  

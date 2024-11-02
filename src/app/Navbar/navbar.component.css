@@ -1,0 +1,11 @@
+.navbar {
+    background-color: #4788cf !important;  
+  }
+
+.navbar-nav.ms-auto {
+    margin-right: 50px; 
+  }
+
+.text-primary {
+    color: blue !important; 
+  }
